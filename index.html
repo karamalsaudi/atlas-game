@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS GAME | الموقع الرسمي</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="epic-intro-screen">
+        <div class="intro-bg-glow"></div>
+        <div class="intro-portal-ring"></div>
+
+        <div class="intro-panel" id="intro-step-1">
+            <div class="intro-icon-top">
+                <i class="fas fa-globe"></i>
+            </div>
+            <h1 class="intro-title">مرحباً بك في موقع <span class="highlight-text">أطلس</span></h1>
+            <p class="intro-subtitle">
+                عالم تندمج فيه التكنولوجيا المعقدة مع سحر الطبيعة الخلابة.<br>
+                استعد لإنقاذ "فانتيك 2050" من الدمار الرقمي.
+            </p>
+            <button class="epic-btn tech-btn" onclick="goToIntroStep2()">
+                <span class="btn-text">الخطوة التالية</span>
+                <i class="fas fa-arrow-left btn-icon-left"></i>
+            </button>
+        </div>
+
+        <div class="intro-panel" id="intro-step-2" style="display: none; opacity: 0;">
+            <div class="intro-icon-top nature-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h1 class="intro-title nature-title">بوابتك نحو المستقبل</h1>
+            <p class="intro-subtitle">
+                موقع أطلس هو بوابتك الرسمية. هنا يمكنك التعرف على أبطال اللعبة،
+                <br> واستكشاف المطورين، واختبار معلوماتك في المسابقة، وتنزيل اللعبة فوراً.
+            </p>
+            <button class="epic-btn nature-btn" onclick="enterMainSite()">
+                <span class="btn-text">دخول الموقع</span>
+                <i class="fas fa-sign-in-alt btn-icon-left"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="particles-js"></div>
+
+    <div class="main-container" id="main-site-content" style="opacity: 0; pointer-events: none;">
+        
+        <header class="site-header">
+            <div class="logo-3d-frame right-logo" id="logo-r">
+                <img src="ATLAS GAME LOGO.png" alt="Atlas Game Logo" class="custom-logo">
+            </div>
+            
+            <div class="header-center-info">
+                <div class="electric-title-container">
+                    <h1 class="game-title" data-text="أطلس GAME">أطلس GAME</h1>
+                </div>
+                <p class="welcome-msg">مرحباً بكم في عالم فانتيك 2050</p>
+            </div>
+
+            <div class="logo-3d-frame left-logo" id="logo-l">
+                <img src="ATLAS GAME LOGO.png" alt="Atlas Game Logo" class="custom-logo">
+            </div>
+        </header>
+
+        <main class="content-area">
+            
+            <section id="home" class="page-section active">
+                <div class="hero-grid-container">
+                    
+                    <div class="card-wrapper left-side" id="wrap-1" onclick="handleCardClick('drop1')">
+                        <div class="main-glass-card">
+                            <i class="fas fa-gamepad card-icon"></i>
+                            <h3>نبذة عن اللعبة</h3>
+                            <p>اضغط لاستكشاف القصة</p>
+                        </div>
+                        <div id="drop1" class="expandable-content side-panel">
+                            <div class="inner-text">
+                                أطلس هي تجربة فريدة تجمع بين حماية الطبيعة والذكاء الاصطناعي لإنقاذ فانتيك 2050. اللعبة تأخذك في رحلة استراتيجية لمواجهة التلوث الرقمي الذي تسببه شركة بايرون العالمية.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper right-side" id="wrap-2" onclick="handleCardClick('drop2')">
+                        <div class="main-glass-card">
+                            <i class="fas fa-rocket card-icon"></i>
+                            <h3>بداية المغامرة</h3>
+                            <p>تعرف على فريقك ومهمتك</p>
+                        </div>
+                        <div id="drop2" class="expandable-content side-panel">
+                            <div class="inner-text">
+                                تبدأ المهمة من الضواحي المهجورة، حيث تجتمع مع فريقك (كرم، زيد، زيدان، عمر). لكل شخصية قدرات فريدة لحل الألغاز التقنية والبيئية وتطهير السيرفرات المركزية.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="about" class="page-section">
+                <div class="about-modern-layout">
+                    
+                    <div class="video-container-3d" id="video-wrapper">
+                        <div class="video-overlay-glow"></div>
+                        <video id="game-video" src="2026-01-29 10-38-52.mp4"></video>
+                        <div class="custom-video-controls">
+                            <button class="ctrl-btn" id="play-pause-btn" title="تشغيل / إيقاف">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="volume-container">
+                                <button class="ctrl-btn" id="mute-btn" title="كتم / تشغيل الصوت">
+                                    <i class="fas fa-volume-up"></i>
+                                </button>
+                                <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+                            </div>
+                            <button class="ctrl-btn speed-btn" id="speed-btn" title="سرعة التشغيل">1x</button>
+                            <a href="2026-01-29 10-38-52.mp4" download class="ctrl-btn" title="تحميل الفيديو">
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <button class="ctrl-btn" id="fullscreen-btn" title="ملء الشاشة">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="vertical-separator"></div>
+                    
+                    <div class="description-accordion box-3d">
+                        <div class="accordion-btn" onclick="toggleAccordion('about-drop')">
+                            <i class="fas fa-info-circle"></i> شرح اللعبة 
+                        </div>
+                        <div id="about-drop" class="accordion-panel">
+                            <p class="long-desc">
+                                تعتمد "أطلس" على نظام القتال التقني المبتكر. يقوم اللاعب بتبديل الأدوار بين الأبطال الأربعة لحل الألغاز البيئية. اللعبة تقدم رسوميات مستقبلية بأسلوب الفانتيك المدمج بالطبيعة، حيث يتوجب عليك استعادة التوازن البيئي الرقمي.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="identity" class="page-section">
+                <h2 class="game-title" style="margin-bottom: 50px; text-align: center;">الهوية الشخصية للفريق</h2>
+                <div class="identity-grid">
+                    
+                    <div class="id-item-wrapper">
+                        <div class="identity-card-3d" onclick="openIdModal('كرم السعودي', 'خبير نمو بيئي. مسؤول عن الحفاظ على التوازن الطبيعي وحل مشكلات الاحتباس الحراري باستخدام تقنيات خضراء متطورة.', '')">
+                            <div class="id-avatar-circle">
+                                <span class="placeholder-q">?</span>
+                                <img src="" style="display:none;" alt="كرم">
+                            </div>
+                            <div class="id-info">
+                                <h3>كرم السعودي</h3>
+                                <p>عرض الهوية <i class="fas fa-id-badge"></i></p>
+                            </div>
+                        </div>
+                        <button class="social-trigger-btn" onclick="openSocialModal('karam@atlas.com', '962791234567', 'karam_saudi')">
+                            <i class="fas fa-link"></i> قنوات التواصل
+                        </button>
+                    </div>
+
+                    <div class="id-item-wrapper">
+                        <div class="identity-card-3d" onclick="openIdModal('زيد كنعان', 'خبير الذكاء الاصطناعي. يقوم بتحليل الخوارزميات المعقدة وتنظيف البيانات الضخمة لضمان عمل نظام لاتس بأعلى كفاءة.', '')">
+                            <div class="id-avatar-circle">
+                                <span class="placeholder-q">?</span>
+                                <img src="" style="display:none;" alt="زيد">
+                            </div>
+                            <div class="id-info">
+                                <h3>زيد كنعان</h3>
+                                <p>عرض الهوية <i class="fas fa-id-badge"></i></p>
+                            </div>
+                        </div>
+                        <button class="social-trigger-btn" onclick="openSocialModal('zaid@atlas.com', '962792345678', 'zaid_kanaan')">
+                            <i class="fas fa-link"></i> قنوات التواصل
+                        </button>
+                    </div>
+
+                    <div class="id-item-wrapper">
+                        <div class="identity-card-3d" onclick="openIdModal('محمد زيدان', 'المؤسس والعقل المدبر. مالك النسخة الأصلية لنموذج لاتس، ويمتلك الصلاحيات العليا للتحكم بمسارات الأنظمة الرقمية.', '')">
+                            <div class="id-avatar-circle">
+                                <span class="placeholder-q">?</span>
+                                <img src="" style="display:none;" alt="محمد">
+                            </div>
+                            <div class="id-info">
+                                <h3>محمد زيدان</h3>
+                                <p>عرض الهوية <i class="fas fa-id-badge"></i></p>
+                            </div>
+                        </div>
+                        <button class="social-trigger-btn" onclick="openSocialModal('mohammad@atlas.com', '962793456789', 'mohammad_zaidan')">
+                            <i class="fas fa-link"></i> قنوات التواصل
+                        </button>
+                    </div>
+
+                    <div class="id-item-wrapper">
+                        <div class="identity-card-3d" onclick="openIdModal('عمر هشلمون', 'خبير الشبكات. الجندي المجهول في حماية النظام من الاختراقات السيبرانية التي تشنها شركة بايرون المعادية.', '')">
+                            <div class="id-avatar-circle">
+                                <span class="placeholder-q">?</span>
+                                <img src="" style="display:none;" alt="عمر">
+                            </div>
+                            <div class="id-info">
+                                <h3>عمر هشلمون</h3>
+                                <p>عرض الهوية <i class="fas fa-id-badge"></i></p>
+                            </div>
+                        </div>
+                        <button class="social-trigger-btn" onclick="openSocialModal('omar@atlas.com', '962794567890', 'omar_hashlamoun')">
+                            <i class="fas fa-link"></i> قنوات التواصل
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="museum" class="page-section">
+                <div class="museum-grid">
+                    
+                    <div class="character-row">
+                        <div class="museum-item" onclick="openMuseumModal('idle_1.png', 'كرم', 'خبير البيئة ومسؤول عن بيانات النمو الطبيعي. يستطيع قياس مستويات التلوث ومعالجة الاحتباس الحراري بفضل قدراته النباتية الخاصة.')">
+                            <div class="podium electric-podium"><img src="idle_1.png" alt="كرم"></div><span>كرم</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('zaid1.png', 'زيد', 'خبير الذكاء الاصطناعي في الفريق. دوره الأساسي تحليل الخوارزميات وإصلاح المشاكل البرمجية وتدريب الروبوتات.')">
+                            <div class="podium electric-podium"><img src="zaid1.png" alt="زيد"></div><span>زيد</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('MO.png', 'عمر', 'خبير الشبكات والأمن السيبراني. متخصص في كشف عمليات الاختراق وحماية البيانات الضخمة من الفيروسات.')">
+                            <div class="podium electric-podium"><img src="MO.png" alt="عمر"></div><span>عمر</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('4.png', 'زيدان', 'المؤسس والمرشد. النسخة الرقمية لمبتكر نموذج لاتس، وهو الدليل الذي ينقذ الموقف ويوجه الأبطال في عالم فانتيك.')">
+                            <div class="podium electric-podium"><img src="4.png" alt="زيدان"></div><span>زيدان</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ability-row">
+                        <div class="museum-item" onclick="openMuseumModal('', 'القوة', 'قدرة هجومية تستخدم لتحطيم الدروع الرقمية العالية.')">
+                            <div class="podium electric-podium skill">💠</div><span>القوة</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('', 'المرونة', 'تسمح للشخصية بتجاوز العوائق البيئية بسلاسة وسرعة.')">
+                            <div class="podium electric-podium skill">💠</div><span>المرونة</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('', 'السرعة', 'زيادة سرعة معالجة البيانات والتحرك بين السيرفرات.')">
+                            <div class="podium electric-podium skill">💠</div><span>السرعة</span>
+                        </div>
+                        <div class="museum-item" onclick="openMuseumModal('', 'الاختفاء', 'تشفير الهوية مؤقتاً لتجنب رصد أنظمة بايرون.')">
+                            <div class="podium electric-podium skill">💠</div><span>الاختفاء</span>
+                        </div>
+                    </div>
+                    
+                    <div class="boss-row">
+                        <div class="museum-item boss" onclick="openMuseumModal('', 'الزعيم بايرون', 'مؤسس شركة أيرون الغامضة. يسعى للسيطرة على السوق العالمي وإخفاء التلوث البيئي الناتج عن مصانعه.')">
+                            <div class="podium electric-podium special-frame">👹</div><span>الزعيم بايرون</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="feedback" class="page-section">
+                <div class="feedback-container form-3d-wrapper">
+                    <h2 class="section-title game-title">أرسل تقييمك</h2>
+                    <p style="text-align: center; color: #ccc; margin-bottom: 20px;">نحن نهتم برأيك لتطوير عالم أطلس</p>
+                    
+                    <textarea id="user-comment" class="textarea-3d" placeholder="اكتب ملاحظاتك هنا لنتطور معاً..."></textarea>
+                    
+                    <div class="stars-wrapper">
+                        <span>قيم تجربتك:</span>
+                        <div class="star-rating" id="main-stars">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    
+                    <button class="submit-btn-glow btn-3d" id="submit-btn" onclick="processFeedback()">إرسال التقييم الآن</button>
+                    
+                    <div class="social-contact-grid">
+                        <a href="https://wa.me/962791737336" target="_blank" class="social-tile tile-3d"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://instagram.com/your_account" target="_blank" class="social-tile tile-3d"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="tel:0791737336" class="social-tile tile-3d"><i class="fas fa-phone"></i> 0791737336</a>
+                        <a href="mailto:atlas-game@gmail.com" class="social-tile full-width tile-3d"><i class="fas fa-envelope"></i> Email: atlas-game@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quiz" class="page-section">
+                <div class="quiz-container-3d">
+                    
+                    <div id="quiz-start-screen" class="quiz-view active-view">
+                        <h2 class="game-title" style="margin-bottom: 40px; text-align: center;">اختبر معلوماتك</h2>
+                        <div class="quiz-buttons-grid">
+                            <div class="quiz-box-3d" onclick="startQuizCountdown()">
+                                <i class="fas fa-play-circle quiz-icon"></i>
+                                <h3>ابدأ المسابقة</h3>
+                            </div>
+                            <div class="quiz-box-3d" onclick="openQuizInfo()">
+                                <i class="fas fa-info-circle quiz-icon"></i>
+                                <h3>معلومات عن المسابقة</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz-countdown-screen" class="quiz-view">
+                        <div class="countdown-number" id="countdown-text">5</div>
+                    </div>
+                    
+                    <div id="quiz-active-screen" class="quiz-view">
+                        <div class="quiz-header-3d">
+                            <div class="quiz-progress">سؤال <span id="current-q-num">1</span> من 10</div>
+                            <div class="quiz-lives" id="quiz-lives">
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="question-box-3d">
+                            <p id="question-text">جاري تحميل السؤال...</p>
+                        </div>
+                        <div class="options-grid-3d" id="options-container"></div>
+                    </div>
+                    
+                    <div id="quiz-result-screen" class="quiz-view">
+                        <h2 class="game-title" id="result-title" style="margin-bottom: 20px;">حظ أوفر!</h2>
+                        <p id="result-msg" style="font-size: 1.2rem; color: #ccc; margin-bottom: 40px; text-align: center;">لقد استنفدت جميع محاولاتك.</p>
+                        <div class="quiz-buttons-grid">
+                            <div class="quiz-box-3d" onclick="resetQuiz()">
+                                <i class="fas fa-redo quiz-icon"></i>
+                                <h3>إعادة المسابقة</h3>
+                            </div>
+                            <div class="quiz-box-3d" onclick="exitQuiz()">
+                                <i class="fas fa-sign-out-alt quiz-icon"></i>
+                                <h3>الخروج من المسابقة</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="download" class="page-section">
+                <div class="download-flex">
+                    
+                    <div class="hologram-core-container">
+                        <div class="hologram-core">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                            <div class="core-center"><i class="fas fa-atom"></i></div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-action-wrapper">
+                        <button id="main-download-btn" class="download-action-btn btn-3d" onclick="startDownloadProcess()">
+                            <span id="download-btn-text"><i class="fas fa-download"></i> تحميل اللعبة</span>
+                            <div id="download-progress-bar"></div>
+                        </button>
+                        <button id="cancel-download-btn" class="cancel-btn-3d" onclick="cancelDownload()" style="display: none;" title="إلغاء التحميل">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="main-footer">
+            <nav class="bottom-nav-dock" id="nav-menu"></nav>
+            <div class="scrolling-ticker">
+                <div class="ticker-text">
+                    كرم السعودي . زيد كنعان . محمد زيدان . عمر هشلمون   
+                </div>
+            </div>
+            <p class="copyright">جميع الحقوق محفوظة © فريق أطلس 2026</p>
+        </footer>
+    </div>
+
+    <div id="museum-modal" class="modal-overlay" onclick="closeMuseumModal(event)">
+        <div class="modal-3d-content museum-theme" id="museum-modal-content">
+            <button class="close-modal-btn" onclick="closeMuseumModal(event)" title="إغلاق"><i class="fas fa-times"></i></button>
+            <div class="modal-layout">
+                <div class="modal-img-container">
+                    <img id="museum-modal-img" src="" alt="Character">
+                    <div id="museum-modal-icon" class="modal-emoji-icon" style="display:none;"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="museum-modal-name" class="game-title modal-electric-title"></h2>
+                    <div class="modal-desc-box">
+                        <p id="museum-modal-desc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="id-modal" class="modal-overlay" onclick="closeIdModal(event)">
+        <div class="id-card-modal-content" id="id-modal-content">
+            <button class="close-modal-btn id-close" onclick="closeIdModal(event)"><i class="fas fa-times"></i></button>
+            <div class="id-card-layout">
+                <div class="id-scanner-line"></div>
+                <div class="id-header-top">
+                    <i class="fas fa-fingerprint fingerprint-glow"></i>
+                    <span>ATLAS SECURITY CLEARANCE</span>
+                </div>
+                <div class="id-card-body">
+                    <div class="id-avatar-large">
+                        <span class="placeholder-q-large" id="id-modal-placeholder">?</span>
+                        <img id="id-modal-img" src="" style="display: none;" alt="ID">
+                    </div>
+                    <div class="id-details">
+                        <h2 id="id-modal-name" class="game-title electric-text-sm"></h2>
+                        <div class="barcode">||||||||||||||||||||||||||</div>
+                        <p id="id-modal-desc" class="id-bio-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="social-modal" class="modal-overlay" onclick="closeSocialModal(event)">
+        <div class="social-modal-content" id="social-modal-content">
+            <button class="close-modal-btn social-close" onclick="closeSocialModal(event)"><i class="fas fa-times"></i></button>
+            <h3 class="social-modal-title">تواصل مباشر <i class="fas fa-satellite-dish"></i></h3>
+            <div class="social-orbs-container">
+                <a href="#" id="social-email-link" class="social-orb orb-email">
+                    <i class="fas fa-envelope"></i><span>Email</span>
+                </a>
+                <a href="#" id="social-wa-link" target="_blank" class="social-orb orb-wa">
+                    <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+                </a>
+                <a href="#" id="social-insta-link" target="_blank" class="social-orb orb-insta">
+                    <i class="fab fa-instagram"></i><span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
