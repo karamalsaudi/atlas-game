@@ -2732,3 +2732,52 @@ body {
         transform: scale(0.98);
     }
 }
+
+
+
+
+
+
+
+/* ========================================= */
+/* كبسولة التحكم (HUD) + إصلاحات الاتجاهات (The Ultimate Patch) */
+/* ========================================= */
+#floating-3d-settings {
+    position: fixed; top: 50%; left: 20px;
+    transform: translateY(-50%) perspective(1000px) rotateY(15deg);
+    z-index: 100000; display: flex; flex-direction: column; align-items: center; gap: 20px;
+    background: rgba(0, 5, 10, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 212, 255, 0.2); border-left: 3px solid var(--primary);
+    padding: 25px 15px; border-radius: 40px;
+    box-shadow: -10px 0 30px rgba(0, 212, 255, 0.1), inset 0 0 20px rgba(0,0,0,0.6);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#floating-3d-settings:hover {
+    left: 30px; transform: translateY(-50%) perspective(1000px) rotateY(0deg) scale(1.05);
+    border-color: var(--nature); box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+}
+.setting-btn-3d {
+    background: transparent !important; border: none !important; outline: none !important;
+    color: #fff; font-size: 1.8rem; cursor: pointer; display: flex; flex-direction: column;
+    align-items: center; gap: 5px; text-shadow: 0 0 15px var(--primary); padding: 0; margin: 0; transition: all 0.3s;
+}
+.setting-btn-3d:hover { color: var(--nature); text-shadow: 0 0 25px var(--nature); transform: scale(1.2) translateZ(30px); }
+#lang-text { font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 900; margin-top: 5px; }
+.capsule-divider { width: 30px; height: 2px; background: linear-gradient(90deg, transparent, var(--primary), transparent); }
+
+/* الدارك مود */
+body.byron-theme {
+    --primary: #ff004c !important; --nature: #9d00ff !important; --accent: #ff004c !important;
+    background: linear-gradient(135deg, #050002 0%, #1a000a 50%, #0a0005 100%) !important;
+}
+body.byron-theme #particles-js canvas { filter: hue-rotate(280deg) brightness(1.5) contrast(1.2); }
+body.byron-theme #floating-3d-settings { border-left-color: #ff004c; box-shadow: -15px 0 40px rgba(255, 0, 76, 0.2); }
+
+/* إصلاحات جذرية للاتجاه الإنجليزي (LTR) لعدم تداخل البطاقات وأزرار التواصل */
+[dir="ltr"] .identity-card-3d { flex-direction: row; }
+[dir="ltr"] .id-info { text-align: left; }
+[dir="ltr"] .id-info p { justify-content: flex-start; }
+[dir="ltr"] .card-wrapper.left-side { flex-direction: row-reverse; }
+[dir="ltr"] .card-wrapper.right-side { flex-direction: row; }
+[dir="ltr"] .social-trigger-btn { transform: translateY(-30px) translateZ(-10px); }
+.id-item-wrapper { position: relative; z-index: 10; padding-bottom: 20px; }

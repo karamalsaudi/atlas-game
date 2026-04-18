@@ -658,3 +658,284 @@ function resetDownloadBtn() {
     document.getElementById('download-progress-bar').style.width = '0%';
     document.getElementById('cancel-download-btn').style.display = 'none';
 }
+
+
+
+
+
+
+
+
+// ==========================================
+// 11. المحرك العميق للترجمة الذكية واعتراض الوظائف (Smart Override Engine V3)
+// ==========================================
+
+let currentLang = 'ar';
+let isByronTheme = false;
+
+// 1. أسئلة المسابقة باللغة الإنجليزية
+const quizQuestions_EN = [
+    { q: "What technology reduces energy consumption in big data servers?", options: ["Green Cloud Computing", "Digital Mining", "Neural Networks", "VR"], answer: 0 },
+    { q: "Which is a renewable energy source to power Vantic?", options: ["Coal", "Solar Energy", "Natural Gas", "Refined Oil"], answer: 1 },
+    { q: "What is the main goal of 'Smart Grids'?", options: ["Increase internet speed", "Monitor population", "Manage energy effectively", "Encrypt data"], answer: 2 },
+    { q: "How does AI help protect forests?", options: ["Automated logging", "Printing artificial leaves", "Analyzing satellite images for fires", "Increasing carbon"], answer: 2 },
+    { q: "What is the safe disposal of old electronics called?", options: ["Green Hacking", "E-waste Recycling", "Auto Update", "Clearing RAM"], answer: 1 },
+    { q: "What is the optimal alternative to Byron's polluting algorithms?", options: ["Energy-saving algorithms", "Shutting down the internet", "Burning old data", "Heating servers"], answer: 0 },
+    { q: "What is the technology's 'Carbon Footprint'?", options: ["Printer ink", "Greenhouse gases from devices", "Fingerprints on phone screens", "Type of virus"], answer: 1 },
+    { q: "Who in the Atlas team analyzes environmental growth data?", options: ["Zaid", "Omar", "Karam", "Zaidan"], answer: 2 },
+    { q: "To reduce mobile battery consumption, which screen is best?", options: ["Old Plasma", "Dark colored OLED", "CRT", "Quartz"], answer: 1 },
+    { q: "What encryption does 'Omar' rely on against Byron?", options: ["Mechanical encryption", "End-to-End encryption", "Paper encryption", "Literal translation"], answer: 1 },
+    { q: "How does IoT help in modern agriculture?", options: ["Smart irrigation based on soil moisture", "Playing music for plants", "Changing leaf colors", "Neon field lighting"], answer: 0 },
+    { q: "Which gas is the main cause of global warming in the game?", options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Helium"], answer: 2 },
+    { q: "What virus did Byron launch to control the system?", options: ["Trojan Horse", "Network Worms", "Byron Malicious Virus", "Ransomware"], answer: 2 },
+    { q: "Who is the original creator of the (LATS) model?", options: ["Zaid", "Karam", "Zaidan", "Omar"], answer: 2 },
+    { q: "What is the main advantage of 'Big Data' in environmental crises?", options: ["Takes huge storage", "Slows down computers", "Accurate prediction of climate changes", "Making electronic games"], answer: 2 }
+];
+
+// 2. المحلل الذكي للنصوص الديناميكية (يحلل جزءاً من النص ليترجمه بالكامل)
+function getTranslatedText(text) {
+    if (!text) return text;
+    
+    // الأسماء
+    if (text.includes('كرم السعودي')) return 'Karam Al-Saudi';
+    if (text.includes('زيد كنعان')) return 'Zaid Kanaan';
+    if (text.includes('محمد زيدان')) return 'Mohammad Zaidan';
+    if (text.includes('عمر هشلمون')) return 'Omar Hashlamoun';
+    if (text === 'كرم') return 'Karam';
+    if (text === 'زيد') return 'Zaid';
+    if (text === 'عمر') return 'Omar';
+    if (text === 'زيدان') return 'Zaidan';
+    if (text.includes('بايرون')) return 'Boss Byron';
+    if (text === 'القوة') return 'Power';
+    if (text === 'المرونة') return 'Flexibility';
+    if (text === 'السرعة') return 'Speed';
+    if (text === 'الاختفاء') return 'Stealth';
+
+    // شروحات المتحف (باستخدام كلمات مفتاحية ذكية لتجاهل المسافات والنقاط)
+    if (text.includes('النمو الطبيعي')) return 'Environmental expert responsible for natural growth data. Measures pollution and treats global warming using botanical abilities.';
+    if (text.includes('وتدريب الروبوتات')) return 'The AI expert of the team. His main role is analyzing algorithms, fixing software bugs, and training robots.';
+    if (text.includes('والأمن السيبراني')) return 'Network and cybersecurity expert. Specializes in detecting breaches and protecting big data from viruses.';
+    if (text.includes('المؤسس والمرشد')) return 'The founder and guide. The digital version of the LATS model creator, guiding heroes in the Vantic world.';
+    if (text.includes('السوق العالمي')) return 'Founder of the mysterious Byron Corp. Seeks to control the global market and hide the environmental pollution.';
+    if (text.includes('الدروع الرقمية')) return 'An offensive ability used to smash high digital shields.';
+    if (text.includes('تجاوز العوائق')) return 'Allows the character to bypass environmental obstacles smoothly and quickly.';
+    if (text.includes('سرعة معالجة')) return 'Increases data processing speed and movement between servers.';
+    if (text.includes('تشفير الهوية')) return 'Temporarily encrypts identity to avoid detection by Byron systems.';
+
+    // شروحات الهوية الشخصية
+    if (text.includes('خبير نمو بيئي')) return 'Environmental Growth Expert. Responsible for maintaining natural balance and solving global warming issues using advanced green technologies.';
+    if (text.includes('الخوارزميات المعقدة')) return 'AI Expert. Analyzes complex algorithms and cleans massive data to ensure the LATS system operates at peak efficiency.';
+    if (text.includes('الصلاحيات العليا')) return 'Founder & Mastermind. Owner of the original LATS model, holding supreme authority to control digital system pathways.';
+    if (text.includes('الجندي المجهول')) return 'Network Expert. The unsung hero protecting the system from cyber breaches launched by the hostile Byron Corporation.';
+
+    return text; // في حال لم يتطابق، يعيد النص الأصلي
+}
+
+// 3. اعتراض النوافذ المنبثقة لترجمتها بالذكاء
+const originalOpenMuseumModal = window.openMuseumModal;
+window.openMuseumModal = function(imgSrc, name, desc) {
+    let finalName = currentLang === 'en' ? getTranslatedText(name) : name;
+    let finalDesc = currentLang === 'en' ? getTranslatedText(desc) : desc;
+    if(originalOpenMuseumModal) originalOpenMuseumModal(imgSrc, finalName, finalDesc);
+};
+
+const originalOpenIdModal = window.openIdModal;
+window.openIdModal = function(name, desc, imgSrc) {
+    let finalName = currentLang === 'en' ? getTranslatedText(name) : name;
+    let finalDesc = currentLang === 'en' ? getTranslatedText(desc) : desc;
+    if(originalOpenIdModal) originalOpenIdModal(finalName, finalDesc, imgSrc);
+};
+
+// 4. باقي وظائف اللعبة المعترضة (المسابقة، التقييم، التحميل)
+window.processFeedback = function() {
+    const btn = document.getElementById('submit-btn');
+    if (selectedRating === 0) {
+        btn.innerText = currentLang === 'en' ? "Choose a rating first ⚠️" : "اختر تقييماً أولاً ⚠️";
+        btn.style.background = "#ff004c"; btn.style.boxShadow = "0 0 20px #ff004c";
+        setTimeout(() => { btn.innerText = currentLang === 'en' ? "Submit Feedback Now" : "إرسال التقييم الآن"; btn.style.background = ""; btn.style.boxShadow = ""; }, 2000);
+        return;
+    }
+    btn.innerHTML = currentLang === 'en' ? 'Sent Successfully ✔' : 'تم الإرسال بنجاح ✔';
+    btn.style.background = 'var(--nature)'; btn.style.boxShadow = '0 0 30px var(--nature), 0 10px 0 #009955';
+    btn.style.color = '#000'; btn.style.transform = 'translateY(10px) scale(0.95)';
+    setTimeout(() => { btn.style.transform = ''; }, 200);
+    setTimeout(() => {
+        btn.innerText = currentLang === 'en' ? "Submit Feedback Now" : "إرسال التقييم الآن";
+        btn.style.background = ''; btn.style.boxShadow = ''; btn.style.color = '';
+        selectedRating = 0; document.querySelectorAll('#main-stars i').forEach(s => s.classList.remove('active'));
+        document.getElementById('user-comment').value = '';
+    }, 3000);
+};
+
+window.startDownloadProcess = function() {
+    if(isDownloading) return;
+    isDownloading = true; countdownValue = 5;
+    const btn = document.getElementById('main-download-btn'); const btnText = document.getElementById('download-btn-text'); const cancelBtn = document.getElementById('cancel-download-btn'); const progressBar = document.getElementById('download-progress-bar');
+    cancelBtn.style.display = 'flex'; btn.style.transform = 'translateZ(20px) scale(1.05)'; btn.style.boxShadow = '0 0 40px var(--nature)';
+    btnText.innerHTML = currentLang === 'en' ? '<i class="fas fa-satellite-dish fa-spin"></i> Processing Data...' : '<i class="fas fa-satellite-dish fa-spin"></i> جاري معالجة البيانات...';
+    progressBar.style.width = '0%'; setTimeout(() => { if(!isDownloading) return; downloadStep(); }, 1500);
+};
+window.downloadStep = function() {
+    const btnText = document.getElementById('download-btn-text'); const progressBar = document.getElementById('download-progress-bar');
+    if(countdownValue > 0) {
+        btnText.innerHTML = currentLang === 'en' ? `<i class="fas fa-hourglass-half"></i> Download starts in ${countdownValue}...` : `<i class="fas fa-hourglass-half"></i> يبدأ التحميل خلال ${countdownValue}...`;
+        progressBar.style.width = `${(5 - countdownValue + 1) * 20}%`;
+        countdownValue--; downloadTimer = setTimeout(window.downloadStep, 1000);
+    } else { finishDownload(); }
+};
+window.finishDownload = function() {
+    isDownloading = false; const btnText = document.getElementById('download-btn-text'); const cancelBtn = document.getElementById('cancel-download-btn'); const btn = document.getElementById('main-download-btn');
+    btnText.innerHTML = currentLang === 'en' ? '<i class="fas fa-check-circle"></i> Downloading Game!' : '<i class="fas fa-check-circle"></i> جاري تنزيل اللعبة!';
+    cancelBtn.style.display = 'none'; btn.style.background = 'var(--nature)';
+    const link = document.createElement('a'); link.href = 'atlas-game-v1.apk'; link.download = 'atlas-game-v1.apk';
+    document.body.appendChild(link); link.click(); document.body.removeChild(link);
+    setTimeout(resetDownloadBtn, 4000);
+};
+window.cancelDownload = function() {
+    clearTimeout(downloadTimer); isDownloading = false; const btnText = document.getElementById('download-btn-text'); const cancelBtn = document.getElementById('cancel-download-btn'); const btn = document.getElementById('main-download-btn'); const progressBar = document.getElementById('download-progress-bar');
+    btn.style.background = '#ff004c'; btn.style.boxShadow = '0 0 40px #ff004c';
+    btnText.innerHTML = currentLang === 'en' ? '<i class="fas fa-ban"></i> Cancelled' : '<i class="fas fa-ban"></i> تم الإلغاء';
+    progressBar.style.width = '0%'; cancelBtn.style.display = 'none'; setTimeout(resetDownloadBtn, 3000);
+};
+window.resetDownloadBtn = function() {
+    isDownloading = false; const btn = document.getElementById('main-download-btn');
+    btn.style.background = ''; btn.style.transform = ''; btn.style.boxShadow = '';
+    document.getElementById('download-btn-text').innerHTML = currentLang === 'en' ? '<i class="fas fa-download"></i> Download Game' : '<i class="fas fa-download"></i> تحميل اللعبة';
+    document.getElementById('download-progress-bar').style.width = '0%'; document.getElementById('cancel-download-btn').style.display = 'none';
+};
+
+window.startActiveQuiz = function() {
+    let activeBank = currentLang === 'en' ? quizQuestions_EN : quizQuestionsBank;
+    currentQuestions = shuffleArray(activeBank).slice(0, 10);
+    currentQIndex = 0; mistakes = 0; updateLivesUI(); switchQuizView('quiz-active-screen'); loadQuestion();
+};
+const originalLoadQuestion = window.loadQuestion;
+window.loadQuestion = function() {
+    originalLoadQuestion();
+    const progressEl = document.querySelector('.quiz-progress');
+    if (progressEl) progressEl.innerHTML = currentLang === 'en' ? `Question <span id="current-q-num">${currentQIndex + 1}</span> of 10` : `سؤال <span id="current-q-num">${currentQIndex + 1}</span> من 10`;
+    const qText = document.getElementById('question-text');
+    const options = document.querySelectorAll('.quiz-option-btn');
+    if (currentLang === 'en') {
+        if(qText) qText.style.direction = 'ltr'; options.forEach(btn => btn.style.direction = 'ltr');
+    } else {
+        if(qText) qText.style.direction = 'rtl'; options.forEach(btn => btn.style.direction = 'rtl');
+    }
+};
+window.showResult = function(isWin) {
+    switchQuizView('quiz-result-screen');
+    const title = document.getElementById('result-title'); const msg = document.getElementById('result-msg');
+    if(isWin) {
+        title.innerText = currentLang === 'en' ? "Exceptional Performance!" : "أداء استثنائي!"; title.style.color = "var(--nature)";
+        msg.innerText = currentLang === 'en' ? "You successfully answered and saved Vantic data." : "لقد أجبت على الأسئلة بنجاح وأنقذت بيانات فانتيك.";
+    } else {
+        title.innerText = currentLang === 'en' ? "Better Luck Next Time!" : "حظ أوفر!"; title.style.color = "#ff004c";
+        msg.innerText = currentLang === 'en' ? "You exhausted all attempts and Byron hacked the system." : "لقد استنفدت جميع محاولاتك واخترق بايرون النظام.";
+    }
+};
+
+// 5. زر تغيير اللغة وترجمة الموقع الرئيسي
+function toggleLanguage() {
+    const langIcon = document.getElementById('lang-icon');
+    const langText = document.getElementById('lang-text');
+    gsap.to(langIcon, { rotationY: '+=360', duration: 0.6 });
+
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    langText.innerText = currentLang === 'ar' ? 'EN' : 'AR';
+
+    const navLangs = {
+        'ar': { home: "الرئيسية", about: "التعريف", identity: "الهوية الشخصية", museum: "المتحف", feedback: "التقييم", quiz: "المسابقة", download: "التحميل" },
+        'en': { home: "Home", about: "About", identity: "Identity", museum: "Museum", feedback: "Feedback", quiz: "Quiz", download: "Download" }
+    };
+    if (typeof navTranslations !== 'undefined') {
+         Object.assign(navTranslations, navLangs[currentLang]);
+         const activeSection = document.querySelector('.page-section.active');
+         if(activeSection && typeof renderNav === 'function') renderNav(activeSection.id);
+    }
+
+    const setHtml = (selector, ar, en) => { document.querySelectorAll(selector).forEach(el => el.innerHTML = currentLang === 'en' ? en : ar); };
+    
+    setHtml('#intro-step-1 .intro-title', 'مرحباً بك في موقع <span class="highlight-text">أطلس</span>', 'Welcome to <span class="highlight-text">ATLAS</span>');
+    setHtml('#intro-step-1 .intro-subtitle', 'عالم تندمج فيه التكنولوجيا المعقدة مع سحر الطبيعة الخلابة.<br>استعد لإنقاذ "فانتيك 2050" من الدمار الرقمي.', 'A world where complex tech merges with nature.<br>Prepare to save "Vantic 2050".');
+    setHtml('#intro-step-1 .epic-btn', '<span class="btn-text">الخطوة التالية</span><i class="fas fa-arrow-left btn-icon-left"></i>', '<span class="btn-text">Next Step</span><i class="fas fa-arrow-right btn-icon-left"></i>');
+    setHtml('#intro-step-2 .intro-title', 'بوابتك نحو المستقبل', 'Gateway to the Future');
+    setHtml('#intro-step-2 .intro-subtitle', 'موقع أطلس هو بوابتك الرسمية. هنا يمكنك التعرف على أبطال اللعبة،<br> واستكشاف المطورين، واختبار معلوماتك.', 'ATLAS is your official portal. Meet heroes, explore developers,<br> and test your knowledge.');
+    setHtml('#intro-step-2 .epic-btn', '<span class="btn-text">دخول الموقع</span><i class="fas fa-sign-in-alt btn-icon-left"></i>', '<span class="btn-text">Enter Site</span><i class="fas fa-sign-in-alt btn-icon-left"></i>');
+    
+    setHtml('.game-title', 'أطلس GAME', 'ATLAS GAME');
+    document.querySelectorAll('.game-title').forEach(el => { if(el.dataset.text) el.dataset.text = currentLang === 'en' ? 'ATLAS GAME' : 'أطلس GAME'; });
+    setHtml('.welcome-msg', 'مرحباً بكم في عالم فانتيك 2050', 'Welcome to Vantic 2050');
+    setHtml('#wrap-1 h3', 'نبذة عن اللعبة', 'About The Game'); setHtml('#wrap-1 p', 'اضغط لاستكشاف القصة', 'Click to explore the story'); setHtml('#drop1 .inner-text', 'أطلس هي تجربة فريدة تجمع بين حماية الطبيعة والذكاء الاصطناعي لإنقاذ فانتيك 2050.', 'Atlas is a unique experience combining nature protection and AI to save Vantic 2050.');
+    setHtml('#wrap-2 h3', 'بداية المغامرة', 'Adventure Begins'); setHtml('#wrap-2 p', 'تعرف على فريقك ومهمتك', 'Meet your team and mission'); setHtml('#drop2 .inner-text', 'تبدأ المهمة من الضواحي المهجورة، حيث تجتمع مع فريقك لحل الألغاز وتطهير السيرفرات.', 'The mission starts in the abandoned suburbs, joining your team to solve puzzles and clear servers.');
+    setHtml('.accordion-btn', '<i class="fas fa-info-circle"></i> شرح اللعبة', '<i class="fas fa-info-circle"></i> Game Info'); setHtml('.long-desc', 'تعتمد "أطلس" على نظام القتال التقني المبتكر. يقوم اللاعب بتبديل الأدوار لحل الألغاز البيئية.', 'ATLAS relies on an innovative combat system. Switch roles to solve puzzles.');
+
+    setHtml('#identity h2', 'الهوية الشخصية للفريق', 'Team Personnel Files');
+    setHtml('.id-info p', 'عرض الهوية <i class="fas fa-id-badge"></i>', 'View Identity <i class="fas fa-id-badge"></i>');
+    setHtml('.social-trigger-btn', '<i class="fas fa-link"></i> قنوات التواصل', '<i class="fas fa-link"></i> Social Channels');
+    setHtml('.social-modal-title', 'تواصل مباشر <i class="fas fa-satellite-dish"></i>', 'Direct Contact <i class="fas fa-satellite-dish"></i>');
+    
+    const ids = document.querySelectorAll('.id-info h3');
+    if(ids.length >= 4) {
+        ids[0].innerHTML = currentLang === 'en' ? 'Karam Al-Saudi' : 'كرم السعودي'; ids[1].innerHTML = currentLang === 'en' ? 'Zaid Kanaan' : 'زيد كنعان';
+        ids[2].innerHTML = currentLang === 'en' ? 'Mohammad Zaidan' : 'محمد زيدان'; ids[3].innerHTML = currentLang === 'en' ? 'Omar Hashlamoun' : 'عمر هشلمون';
+    }
+
+    const mus = document.querySelectorAll('.museum-item span');
+    if(mus.length >= 9) {
+        const musEn = ['Karam', 'Zaid', 'Omar', 'Zaidan', 'Power', 'Flexibility', 'Speed', 'Stealth', 'Boss Byron'];
+        const musAr = ['كرم', 'زيد', 'عمر', 'زيدان', 'القوة', 'المرونة', 'السرعة', 'الاختفاء', 'الزعيم بايرون'];
+        mus.forEach((el, i) => el.innerHTML = currentLang === 'en' ? musEn[i] : musAr[i]);
+    }
+
+    setHtml('#feedback h2', 'أرسل تقييمك', 'Send Feedback'); setHtml('#feedback p', 'نحن نهتم برأيك لتطوير عالم أطلس', 'We care about your opinion to develop Atlas world');
+    setHtml('.stars-wrapper span', 'قيم تجربتك:', 'Rate your experience:'); setHtml('#submit-btn', 'إرسال التقييم الآن', 'Submit Feedback Now');
+    const commentBox = document.getElementById('user-comment');
+    if(commentBox) commentBox.placeholder = currentLang === 'en' ? 'Write your feedback here to evolve together...' : 'اكتب ملاحظاتك هنا لنتطور معاً...';
+    
+    setHtml('.ticker-text', 'كرم السعودي . زيد كنعان . محمد زيدان . عمر هشلمون', 'Karam Al-Saudi . Zaid Kanaan . Mohammad Zaidan . Omar Hashlamoun');
+    setHtml('.copyright', 'جميع الحقوق محفوظة © فريق أطلس 2026', 'All Rights Reserved © Atlas Team 2026');
+    if(!isDownloading) setHtml('#download-btn-text', '<i class="fas fa-download"></i> تحميل اللعبة', '<i class="fas fa-download"></i> Download Game');
+
+    setHtml('#quiz-start-screen h2', 'اختبر معلوماتك', 'Test Your Knowledge');
+    const quizH3 = document.querySelectorAll('#quiz-start-screen h3');
+    if(quizH3.length >= 2) {
+        quizH3[0].innerHTML = currentLang === 'en' ? 'Start Quiz' : 'ابدأ المسابقة'; quizH3[1].innerHTML = currentLang === 'en' ? 'Quiz Information' : 'معلومات عن المسابقة';
+    }
+    const quizEndH3 = document.querySelectorAll('#quiz-result-screen h3');
+    if(quizEndH3.length >= 2) {
+        quizEndH3[0].innerHTML = currentLang === 'en' ? 'Restart Quiz' : 'إعادة المسابقة'; quizEndH3[1].innerHTML = currentLang === 'en' ? 'Exit Quiz' : 'الخروج من المسابقة';
+    }
+
+    const playBtn = document.getElementById('play-pause-btn'); if(playBtn) playBtn.title = currentLang === 'en' ? 'Play / Pause' : 'تشغيل / إيقاف';
+    const muteBtn = document.getElementById('mute-btn'); if(muteBtn) muteBtn.title = currentLang === 'en' ? 'Mute / Unmute' : 'كتم / تشغيل الصوت';
+    const speedBtn = document.getElementById('speed-btn'); if(speedBtn) speedBtn.title = currentLang === 'en' ? 'Playback Speed' : 'سرعة التشغيل';
+    const fullBtn = document.getElementById('fullscreen-btn'); if(fullBtn) fullBtn.title = currentLang === 'en' ? 'Fullscreen' : 'ملء الشاشة';
+    const dlBtn = document.querySelector('a.ctrl-btn'); if(dlBtn) dlBtn.title = currentLang === 'en' ? 'Download Video' : 'تحميل الفيديو';
+
+    if (document.getElementById('quiz-active-screen') && document.getElementById('quiz-active-screen').classList.contains('active-view')) {
+        let activeBank = currentLang === 'en' ? quizQuestions_EN : quizQuestionsBank; currentQuestions = activeBank; loadQuestion();
+    }
+    gsap.from(".page-section.active, .site-header, .main-footer", { opacity: 0.5, duration: 0.5 });
+}
+
+function toggleCyberNatureTheme() {
+    const themeIcon = document.getElementById('theme-icon'); const btn = document.getElementById('theme-toggle-btn');
+    gsap.to(btn, { rotationZ: '+=360', scale: 1.2, duration: 0.5, yoyo: true, repeat: 1 });
+    const flash = document.createElement('div'); flash.style.cssText = "position:fixed; inset:0; background:#fff; z-index:999999; pointer-events:none; opacity:0; mix-blend-mode: overlay;";
+    document.body.appendChild(flash);
+    gsap.to(flash, { opacity: 1, duration: 0.1, yoyo: true, repeat: 3, onComplete: () => {
+        isByronTheme = !isByronTheme;
+        if (isByronTheme) {
+            document.body.classList.add('byron-theme'); themeIcon.className = 'fas fa-cog fa-spin'; themeIcon.style.color = '#ff004c';
+        } else {
+            document.body.classList.remove('byron-theme'); themeIcon.className = 'fas fa-leaf'; themeIcon.style.color = '';
+        }
+        flash.remove();
+    }});
+}
+
+document.addEventListener('mousemove', (e) => {
+    const caps = document.getElementById('floating-3d-settings');
+    if(caps) { const xPos = (window.innerWidth / 2 - e.pageX) / 60; const yPos = (window.innerHeight / 2 - e.pageY) / 60; gsap.to(caps, { rotationY: 15 + xPos, rotationX: -yPos, ease: "power1.out" }); }
+});
