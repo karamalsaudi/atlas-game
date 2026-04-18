@@ -1,4 +1,82 @@
 
+// Responsive viewport handling
+function handleViewport() {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+        const meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
+        document.head.appendChild(meta);
+    }
+}
+
+// Touch device detection and optimization
+function optimizeForTouch() {
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('touch-device');
+        
+        // Improve touch response
+        document.querySelectorAll('.nav-item, .main-glass-card, .identity-card-3d, .quiz-box-3d, .epic-btn, .ctrl-btn, .accordion-btn').forEach(el => {
+            el.style.setProperty('-webkit-tap-highlight-color', 'transparent');
+        });
+    }
+}
+
+// Handle orientation change
+function handleOrientationChange() {
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+            // Recalculate layout
+            const contentArea = document.querySelector('.content-area');
+            if (contentArea) {
+                contentArea.style.height = window.innerHeight + 'px';
+            }
+        }, 100);
+    });
+}
+
+// Handle resize events
+function handleResize() {
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Adjust content area height
+            const contentArea = document.querySelector('.content-area');
+            const header = document.querySelector('.site-header');
+            const footer = document.querySelector('.main-footer');
+            
+            if (contentArea && header && footer) {
+                const headerHeight = header.offsetHeight;
+                const footerHeight = footer.offsetHeight;
+                contentArea.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+            }
+        }, 250);
+    });
+}
+
+// Initialize responsive features
+document.addEventListener('DOMContentLoaded', () => {
+    handleViewport();
+    optimizeForTouch();
+    handleOrientationChange();
+    handleResize();
+    
+    // Initial height calculation
+    setTimeout(() => {
+        const contentArea = document.querySelector('.content-area');
+        const header = document.querySelector('.site-header');
+        const footer = document.querySelector('.main-footer');
+        
+        if (contentArea && header && footer) {
+            const headerHeight = header.offsetHeight;
+            const footerHeight = footer.offsetHeight;
+            contentArea.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
+        }
+    }, 500);
+});
+
 particlesJS("particles-js", {
     "particles": {
         "number": { "value": 90 },

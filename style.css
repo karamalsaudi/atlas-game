@@ -1660,3 +1660,1075 @@ body {
     margin: 8px 0;
     padding-bottom: 8px;
 }
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Large Desktops */
+@media (max-width: 1400px) {
+    .intro-panel {
+        width: 90%;
+        max-width: 750px;
+        padding: 50px 40px;
+    }
+    
+    .intro-title {
+        font-size: 3.5rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .hero-grid-container {
+        gap: 50px;
+    }
+    
+    .main-glass-card {
+        width: 280px;
+        padding: 30px;
+    }
+    
+    .expandable-content.side-panel.show {
+        max-width: 300px;
+    }
+    
+    .inner-text {
+        min-width: 270px;
+        font-size: 1rem;
+    }
+    
+    .identity-grid {
+        width: 90%;
+        gap: 30px;
+    }
+    
+    .video-container-3d {
+        width: 550px;
+        height: 310px;
+    }
+    
+    .description-accordion.box-3d {
+        width: 550px;
+    }
+}
+
+/* Desktops */
+@media (max-width: 1200px) {
+    .site-header {
+        padding: 15px 30px;
+    }
+    
+    .logo-3d-frame {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .game-title {
+        font-size: 2.8rem;
+    }
+    
+    .welcome-msg {
+        font-size: 0.9rem;
+    }
+    
+    .intro-panel {
+        padding: 40px 30px;
+    }
+    
+    .intro-title {
+        font-size: 3rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .epic-btn {
+        padding: 12px 35px;
+        font-size: 1.3rem;
+    }
+    
+    .hero-grid-container {
+        gap: 30px;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .card-wrapper {
+        flex-direction: row !important;
+    }
+    
+    .main-glass-card {
+        width: 250px;
+        padding: 25px;
+    }
+    
+    .main-glass-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .main-glass-card p {
+        font-size: 0.9rem;
+    }
+    
+    .expandable-content.side-panel.show {
+        max-width: 280px;
+    }
+    
+    .inner-text {
+        min-width: 250px;
+        font-size: 0.95rem;
+        padding: 20px;
+    }
+    
+    .about-modern-layout {
+        gap: 30px;
+    }
+    
+    .video-container-3d {
+        width: 500px;
+        height: 280px;
+    }
+    
+    .description-accordion.box-3d {
+        width: 500px;
+    }
+    
+    .identity-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    
+    .identity-card-3d {
+        padding: 15px 20px;
+    }
+    
+    .id-avatar-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .id-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .id-info p {
+        font-size: 0.9rem;
+    }
+    
+    .quiz-container-3d {
+        width: 90%;
+    }
+    
+    .quiz-buttons-grid {
+        gap: 20px;
+    }
+    
+    .quiz-box-3d {
+        width: 250px;
+        padding: 30px;
+    }
+    
+    .quiz-icon {
+        font-size: 3rem;
+    }
+    
+    .form-3d-wrapper {
+        width: 90%;
+        padding: 30px;
+    }
+    
+    .museum-theme {
+        width: 90%;
+        padding: 30px;
+    }
+    
+    .modal-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .modal-img-container img {
+        max-height: 300px;
+    }
+    
+    .modal-electric-title {
+        font-size: 2.5rem;
+    }
+    
+    #museum-modal-desc {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .site-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .logo-3d-frame {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .header-center-info {
+        text-align: center;
+    }
+    
+    .game-title {
+        font-size: 2.2rem;
+    }
+    
+    .welcome-msg {
+        font-size: 0.85rem;
+    }
+    
+    .intro-panel {
+        width: 85%;
+        padding: 30px 25px;
+    }
+    
+    .intro-title {
+        font-size: 2.5rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .intro-icon-top {
+        font-size: 3rem;
+    }
+    
+    .epic-btn {
+        padding: 10px 25px;
+        font-size: 1.1rem;
+    }
+    
+    .hero-grid-container {
+        gap: 20px;
+    }
+    
+    .card-wrapper {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    
+    .main-glass-card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .expandable-content.side-panel.show {
+        max-width: 350px;
+        margin: 15px 0;
+    }
+    
+    .inner-text {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .about-modern-layout {
+        width: 100%;
+    }
+    
+    .video-container-3d {
+        width: 100%;
+        max-width: 500px;
+        height: 250px;
+    }
+    
+    .description-accordion.box-3d {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .identity-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    
+    .id-item-wrapper {
+        width: 100%;
+    }
+    
+    .identity-card-3d {
+        width: 100%;
+    }
+    
+    .bottom-nav-dock {
+        flex-wrap: wrap;
+        padding: 0 10px;
+    }
+    
+    .nav-item {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .quiz-buttons-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .quiz-box-3d {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .options-grid-3d {
+        grid-template-columns: 1fr;
+    }
+    
+    .quiz-header-3d {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .question-box-3d {
+        padding: 25px;
+    }
+    
+    #question-text {
+        font-size: 1.3rem;
+    }
+    
+    .form-3d-wrapper {
+        padding: 25px;
+    }
+    
+    .social-contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .full-width {
+        grid-column: span 1;
+    }
+    
+    .museum-theme {
+        padding: 25px;
+    }
+    
+    .modal-electric-title {
+        font-size: 2rem;
+    }
+    
+    .modal-desc-box {
+        padding: 20px;
+    }
+    
+    #museum-modal-desc {
+        font-size: 1.1rem;
+    }
+    
+    .id-card-modal-content {
+        width: 95%;
+        padding: 25px 20px;
+    }
+    
+    .social-modal-content {
+        width: 95%;
+        height: auto;
+        padding: 30px;
+        border-radius: 20px;
+    }
+    
+    .hologram-core-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .download-action-btn {
+        min-width: 200px;
+    }
+}
+
+/* Large Phones */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .site-header {
+        padding: 10px 15px;
+    }
+    
+    .logo-3d-frame {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .welcome-msg {
+        font-size: 0.8rem;
+    }
+    
+    .intro-panel {
+        width: 90%;
+        padding: 25px 20px;
+    }
+    
+    .intro-title {
+        font-size: 2rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 1rem;
+    }
+    
+    .intro-icon-top {
+        font-size: 2.5rem;
+    }
+    
+    .epic-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .btn-icon-left {
+        display: none;
+    }
+    
+    .page-section {
+        padding: 20px 15px;
+    }
+    
+    .main-glass-card {
+        padding: 20px;
+    }
+    
+    .main-glass-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .card-icon {
+        font-size: 2.5rem;
+    }
+    
+    .expandable-content.side-panel.show {
+        max-width: 100%;
+    }
+    
+    .inner-text {
+        font-size: 0.9rem;
+        padding: 15px;
+    }
+    
+    .video-container-3d {
+        height: 220px;
+    }
+    
+    .custom-video-controls {
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    
+    .ctrl-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    #volume-slider {
+        width: 60px;
+    }
+    
+    .vertical-separator {
+        height: 25px;
+    }
+    
+    .accordion-btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .long-desc {
+        font-size: 1rem;
+    }
+    
+    .id-avatar-circle {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .placeholder-q {
+        font-size: 2.5rem;
+    }
+    
+    .id-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .social-trigger-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .bottom-nav-dock {
+        gap: 8px;
+    }
+    
+    .nav-item {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .scrolling-ticker {
+        height: 35px;
+    }
+    
+    .ticker-text {
+        font-size: 0.9rem;
+    }
+    
+    .quiz-box-3d h3 {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-number {
+        font-size: 6rem;
+    }
+    
+    .question-box-3d {
+        padding: 20px;
+    }
+    
+    #question-text {
+        font-size: 1.1rem;
+    }
+    
+    .quiz-option-btn {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .form-3d-wrapper {
+        padding: 20px;
+    }
+    
+    .textarea-3d {
+        height: 100px;
+        font-size: 1rem;
+    }
+    
+    .stars-wrapper {
+        font-size: 1rem;
+    }
+    
+    .star-rating i {
+        font-size: 2rem;
+    }
+    
+    .btn-3d {
+        padding: 15px;
+        font-size: 1rem;
+    }
+    
+    .hologram-core-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .core-center {
+        font-size: 3rem;
+    }
+    
+    .download-action-btn {
+        min-width: 180px;
+    }
+    
+    .cancel-btn-3d {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .modal-electric-title {
+        font-size: 1.6rem;
+    }
+    
+    .modal-desc-box {
+        padding: 15px;
+    }
+    
+    #museum-modal-desc {
+        font-size: 1rem;
+    }
+    
+    .id-card-modal-content {
+        padding: 20px 15px;
+    }
+    
+    .electric-text-sm {
+        font-size: 1.8rem;
+    }
+    
+    .id-bio-text {
+        font-size: 1rem;
+    }
+    
+    .social-modal-content {
+        padding: 20px;
+    }
+    
+    .social-orbs-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-orb i {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .site-header {
+        padding: 8px 10px;
+    }
+    
+    .logo-3d-frame {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .game-title {
+        font-size: 1.5rem;
+    }
+    
+    .welcome-msg {
+        font-size: 0.75rem;
+    }
+    
+    .intro-panel {
+        width: 95%;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .intro-title {
+        font-size: 1.6rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .intro-icon-top {
+        font-size: 2rem;
+    }
+    
+    .epic-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .main-glass-card {
+        padding: 15px;
+    }
+    
+    .main-glass-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .main-glass-card p {
+        font-size: 0.8rem;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .inner-text {
+        font-size: 0.85rem;
+        padding: 12px;
+    }
+    
+    .video-container-3d {
+        height: 180px;
+    }
+    
+    .custom-video-controls {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .ctrl-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .ctrl-btn.speed-btn {
+        width: 40px;
+    }
+    
+    #volume-slider {
+        width: 50px;
+    }
+    
+    .accordion-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .long-desc {
+        font-size: 0.9rem;
+    }
+    
+    .id-avatar-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .placeholder-q {
+        font-size: 2rem;
+    }
+    
+    .id-info h3 {
+        font-size: 1rem;
+    }
+    
+    .id-info p {
+        font-size: 0.8rem;
+    }
+    
+    .social-trigger-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .bottom-nav-dock {
+        gap: 5px;
+    }
+    
+    .nav-item {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+    
+    .scrolling-ticker {
+        height: 30px;
+    }
+    
+    .ticker-text {
+        font-size: 0.8rem;
+    }
+    
+    .copyright {
+        font-size: 0.75rem;
+    }
+    
+    .quiz-box-3d {
+        padding: 20px;
+    }
+    
+    .quiz-icon {
+        font-size: 2.5rem;
+    }
+    
+    .quiz-box-3d h3 {
+        font-size: 1rem;
+    }
+    
+    .countdown-number {
+        font-size: 4rem;
+    }
+    
+    .quiz-progress {
+        font-size: 1rem;
+    }
+    
+    .quiz-lives {
+        font-size: 1.2rem;
+    }
+    
+    .question-box-3d {
+        padding: 15px;
+    }
+    
+    #question-text {
+        font-size: 1rem;
+    }
+    
+    .quiz-option-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .form-3d-wrapper {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .textarea-3d {
+        height: 80px;
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    
+    .stars-wrapper {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    
+    .star-rating i {
+        font-size: 1.5rem;
+    }
+    
+    .btn-3d {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .social-contact-grid {
+        gap: 10px;
+    }
+    
+    .tile-3d {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .tile-3d i {
+        font-size: 1.2rem;
+    }
+    
+    .hologram-core-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .core-center {
+        font-size: 2.5rem;
+    }
+    
+    .download-action-btn {
+        min-width: 150px;
+        padding: 10px 15px;
+    }
+    
+    .cancel-btn-3d {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .modal-electric-title {
+        font-size: 1.4rem;
+    }
+    
+    .modal-desc-box {
+        padding: 12px;
+    }
+    
+    #museum-modal-desc {
+        font-size: 0.9rem;
+    }
+    
+    .id-card-modal-content {
+        padding: 15px 12px;
+    }
+    
+    .id-avatar-large {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .placeholder-q-large {
+        font-size: 3rem;
+    }
+    
+    .electric-text-sm {
+        font-size: 1.5rem;
+    }
+    
+    .barcode {
+        font-size: 1.2rem;
+    }
+    
+    .id-bio-text {
+        font-size: 0.9rem;
+    }
+    
+    .social-modal-content {
+        padding: 15px;
+    }
+    
+    .social-modal-title {
+        font-size: 1.4rem;
+    }
+    
+    .social-orb i {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .social-orb span {
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .intro-title {
+        font-size: 1.4rem;
+    }
+    
+    .intro-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .game-title {
+        font-size: 1.3rem;
+    }
+    
+    .logo-3d-frame {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .main-glass-card h3 {
+        font-size: 1rem;
+    }
+    
+    .card-icon {
+        font-size: 1.8rem;
+    }
+    
+    .video-container-3d {
+        height: 150px;
+    }
+    
+    .ctrl-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .hologram-core-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .core-center {
+        font-size: 2rem;
+    }
+}
+
+/* Landscape Orientation Adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .intro-panel {
+        padding: 20px;
+    }
+    
+    .intro-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .intro-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .epic-btn {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+    
+    .site-header {
+        flex-direction: row;
+        padding: 10px 20px;
+    }
+    
+    .logo-3d-frame {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .game-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-grid-container {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .card-wrapper {
+        flex-direction: row !important;
+    }
+    
+    .main-glass-card {
+        width: 200px;
+        padding: 15px;
+    }
+    
+    .expandable-content.side-panel.show {
+        max-width: 200px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .custom-logo {
+        image-rendering: -webkit-optimize-contrast;
+    }
+    
+    .game-title {
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .nav-item:hover {
+        transform: none;
+    }
+    
+    .nav-item:active {
+        transform: scale(0.95);
+    }
+    
+    .main-glass-card:active {
+        transform: scale(0.98);
+    }
+    
+    .identity-card-3d:active {
+        transform: scale(0.98);
+    }
+    
+    .quiz-box-3d:active {
+        transform: scale(0.98);
+    }
+    
+    .epic-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .ctrl-btn:active {
+        transform: scale(0.9);
+    }
+    
+    .accordion-btn:active {
+        transform: scale(0.98);
+    }
+}
