@@ -844,10 +844,16 @@ function toggleLanguage() {
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     langText.innerText = currentLang === 'ar' ? 'EN' : 'AR';
 
-    const navLangs = {
-        'ar': { home: "الرئيسية", about: "التعريف", identity: "الهوية الشخصية", museum: "المتحف", feedback: "التقييم", quiz: "المسابقة", download: "التحميل" },
-        'en': { home: "Home", about: "About", identity: "Identity", museum: "Museum", feedback: "Feedback", quiz: "Quiz", download: "Download" }
-    };
+const navLangs = {
+    'ar': { 
+        home: "الرئيسية", about: "التعريف", identity: "الهوية", museum: "المتحف", 
+        feedback: "التقييم", quiz: "المسابقة", download: "التحميل" 
+    },
+    'en': { 
+        home: "Home", about: "About", identity: "Identity", museum: "Museum", 
+        feedback: "Feedback", quiz: "Quiz", download: "Download" 
+    }
+};
     if (typeof navTranslations !== 'undefined') {
          Object.assign(navTranslations, navLangs[currentLang]);
          const activeSection = document.querySelector('.page-section.active');
@@ -939,3 +945,122 @@ document.addEventListener('mousemove', (e) => {
     const caps = document.getElementById('floating-3d-settings');
     if(caps) { const xPos = (window.innerWidth / 2 - e.pageX) / 60; const yPos = (window.innerHeight / 2 - e.pageY) / 60; gsap.to(caps, { rotationY: 15 + xPos, rotationX: -yPos, ease: "power1.out" }); }
 });
+
+
+
+
+
+
+
+
+
+
+
+// ==========================================
+// محرك الانتقال الميكانيكي (V6 - إصلاح الاهتزاز وحواف الشاشة)
+// ==========================================
+
+const mechanicalWipeSound = new Audio('https://actions.google.com/sounds/v1/science_fiction/space_door_open.ogg');
+let isWiping = false; 
+
+// 1. دالة فتح الأبواب
+window.openCyberDoors = function() {
+    const leftDoor = document.querySelector('.left-door');
+    const rightDoor = document.querySelector('.right-door');
+    const logo = document.querySelector('.door-center-logo');
+    const container = document.getElementById('cyber-doors-container');
+
+    if (!leftDoor || !rightDoor) return;
+
+    mechanicalWipeSound.currentTime = 0;
+    mechanicalWipeSound.volume = 1.0;
+    mechanicalWipeSound.play().catch(()=>{});
+
+    // إعادة الحجم الطبيعي وإلغاء الاهتزاز بسلاسة عند الفتح
+    gsap.to(container, { scale: 1, duration: 0.2 }); 
+    gsap.to(logo, { scale: 0, opacity: 0, duration: 0.2 });
+    
+    gsap.to(leftDoor, { left: '-60%', duration: 0.8, ease: "power4.out" });
+    gsap.to(rightDoor, { right: '-60%', duration: 0.8, ease: "power4.out", onComplete: () => {
+        container.style.pointerEvents = 'none'; 
+        isWiping = false; 
+    }});
+};
+
+// 2. دالة إغلاق الأبواب (مع إصلاح الحواف)
+window.triggerMechanicalWipe = function(callback) {
+    const leftDoor = document.querySelector('.left-door');
+    const rightDoor = document.querySelector('.right-door');
+    const logo = document.querySelector('.door-center-logo');
+    const container = document.getElementById('cyber-doors-container');
+
+    if (!leftDoor || !rightDoor || isWiping) return; 
+    isWiping = true;
+
+    container.style.pointerEvents = 'all';
+    
+    // التأكد من أن الحاوية في مكانها الطبيعي قبل البدء
+    gsap.set(container, { scale: 1, x: 0 });
+
+    // إغلاق خاطف (0.2 ثانية)
+    gsap.to(leftDoor, { left: '0%', duration: 0.2, ease: "power4.in" });
+    gsap.to(rightDoor, { right: '0%', duration: 0.2, ease: "power4.in", onComplete: () => {
+        
+        // تغيير الصفحة في الظلام التام
+        if (typeof callback === 'function') callback();
+
+        mechanicalWipeSound.currentTime = 0;
+        mechanicalWipeSound.volume = 1.0;
+        mechanicalWipeSound.play().catch(()=>{});
+        
+        // السر هنا: تكبير الحاوية 5% لتخرج الأطراف خارج الشاشة، ثم الاهتزاز براحة تامة!
+        gsap.set(container, { scale: 1.05 });
+        gsap.fromTo(container, {x: -15}, {x: 15, duration: 0.01, yoyo: true, repeat: 5, onComplete: () => {
+            gsap.set(container, { x: 0 }); // تصفير الاهتزاز عند الانتهاء
+        }});
+
+        gsap.to(logo, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)" });
+
+        // ننتظر قليلاً ثم نفتح الأبواب
+        setTimeout(() => {
+            window.openCyberDoors();
+        }, 800); 
+    }});
+};
+
+// ==========================================
+// 3. فتح الأبواب التلقائي عند الدخول للموقع
+// ==========================================
+window.addEventListener('load', () => {
+    const logo = document.querySelector('.door-center-logo');
+    if(logo) gsap.set(logo, { scale: 1, opacity: 1 }); 
+    
+    setTimeout(() => {
+        window.openCyberDoors();
+    }, 500);
+});
+
+// ==========================================
+// 4. الاعتراض الذكي لدالة التنقل
+// ==========================================
+if (typeof window.originalRenderNav_doors === 'undefined') {
+    window.originalRenderNav_doors = window.renderNav;
+    
+    window.renderNav = function(sectionId) {
+        const activeSection = document.querySelector('.page-section.active');
+        if (activeSection && activeSection.id === sectionId) return;
+
+        triggerMechanicalWipe(() => {
+            if (window.originalRenderNav_doors) {
+                window.originalRenderNav_doors(sectionId);
+            }
+        });
+    };
+}
+
+
+
+
+
+
+

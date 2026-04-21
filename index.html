@@ -9,8 +9,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 <body>
+
+</head>
+<body>
+    
+    <div id="cyber-doors-container">
+        <div class="cyber-door left-door">
+            <div class="door-edge"></div>
+            <div class="door-texture"></div>
+        </div>
+        <div class="cyber-door right-door">
+            <div class="door-edge"></div>
+            <div class="door-texture"></div>
+        </div>
+        <div class="door-center-logo">ATLAS</div>
+    </div>
+    <header>
+    
+
 
 <div id="floating-3d-settings" class="glass-capsule-3d">
         <button id="theme-toggle-btn" class="setting-btn-3d" title="تغيير المظهر" onclick="toggleCyberNatureTheme()">
@@ -226,76 +245,11 @@
                 </div>
             </section>
 
-            <section id="museum" class="page-section">
-                <div class="museum-grid">
-                    
-                    <div class="character-row">
-                        <div class="museum-item" onclick="openMuseumModal('idle_1.png', 'كرم', 'خبير البيئة ومسؤول عن بيانات النمو الطبيعي. يستطيع قياس مستويات التلوث ومعالجة الاحتباس الحراري بفضل قدراته النباتية الخاصة.')">
-                            <div class="podium electric-podium"><img src="idle_1.png" alt="كرم"></div><span>كرم</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('zaid1.png', 'زيد', 'خبير الذكاء الاصطناعي في الفريق. دوره الأساسي تحليل الخوارزميات وإصلاح المشاكل البرمجية وتدريب الروبوتات.')">
-                            <div class="podium electric-podium"><img src="zaid1.png" alt="زيد"></div><span>زيد</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('MO.png', 'عمر', 'خبير الشبكات والأمن السيبراني. متخصص في كشف عمليات الاختراق وحماية البيانات الضخمة من الفيروسات.')">
-                            <div class="podium electric-podium"><img src="MO.png" alt="عمر"></div><span>عمر</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('4.png', 'زيدان', 'المؤسس والمرشد. النسخة الرقمية لمبتكر نموذج لاتس، وهو الدليل الذي ينقذ الموقف ويوجه الأبطال في عالم فانتيك.')">
-                            <div class="podium electric-podium"><img src="4.png" alt="زيدان"></div><span>زيدان</span>
-                        </div>
-                    </div>
-                    
-                    <div class="ability-row">
-                        <div class="museum-item" onclick="openMuseumModal('', 'القوة', 'قدرة هجومية تستخدم لتحطيم الدروع الرقمية العالية.')">
-                            <div class="podium electric-podium skill">💠</div><span>القوة</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('', 'المرونة', 'تسمح للشخصية بتجاوز العوائق البيئية بسلاسة وسرعة.')">
-                            <div class="podium electric-podium skill">💠</div><span>المرونة</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('', 'السرعة', 'زيادة سرعة معالجة البيانات والتحرك بين السيرفرات.')">
-                            <div class="podium electric-podium skill">💠</div><span>السرعة</span>
-                        </div>
-                        <div class="museum-item" onclick="openMuseumModal('', 'الاختفاء', 'تشفير الهوية مؤقتاً لتجنب رصد أنظمة بايرون.')">
-                            <div class="podium electric-podium skill">💠</div><span>الاختفاء</span>
-                        </div>
-                    </div>
-                    
-                    <div class="boss-row">
-                        <div class="museum-item boss" onclick="openMuseumModal('', 'الزعيم بايرون', 'مؤسس شركة أيرون الغامضة. يسعى للسيطرة على السوق العالمي وإخفاء التلوث البيئي الناتج عن مصانعه.')">
-                            <div class="podium electric-podium special-frame">👹</div><span>الزعيم بايرون</span>
-                        </div>
-                    </div>
 
-                </div>
-            </section>
 
-            <section id="feedback" class="page-section">
-                <div class="feedback-container form-3d-wrapper">
-                    <h2 class="section-title game-title">أرسل تقييمك</h2>
-                    <p style="text-align: center; color: #ccc; margin-bottom: 20px;">نحن نهتم برأيك لتطوير عالم أطلس</p>
-                    
-                    <textarea id="user-comment" class="textarea-3d" placeholder="اكتب ملاحظاتك هنا لنتطور معاً..."></textarea>
-                    
-                    <div class="stars-wrapper">
-                        <span>قيم تجربتك:</span>
-                        <div class="star-rating" id="main-stars">
-                            <i class="fas fa-star" data-rating="1"></i>
-                            <i class="fas fa-star" data-rating="2"></i>
-                            <i class="fas fa-star" data-rating="3"></i>
-                            <i class="fas fa-star" data-rating="4"></i>
-                            <i class="fas fa-star" data-rating="5"></i>
-                        </div>
-                    </div>
-                    
-                    <button class="submit-btn-glow btn-3d" id="submit-btn" onclick="processFeedback()">إرسال التقييم الآن</button>
-                    
-                    <div class="social-contact-grid">
-                        <a href="https://wa.me/962791737336" target="_blank" class="social-tile tile-3d"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="https://instagram.com/your_account" target="_blank" class="social-tile tile-3d"><i class="fab fa-instagram"></i> Instagram</a>
-                        <a href="tel:0791737336" class="social-tile tile-3d"><i class="fas fa-phone"></i> 0791737336</a>
-                        <a href="mailto:atlas-game@gmail.com" class="social-tile full-width tile-3d"><i class="fas fa-envelope"></i> Email: atlas-game@gmail.com</a>
-                    </div>
-                </div>
-            </section>
+
+
+
 
             <section id="quiz" class="page-section">
                 <div class="quiz-container-3d">
